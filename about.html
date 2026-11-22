@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Maid</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="logo-wrap">
+          <img src="logo.jpg" alt="Maid Logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Maid</div>
+          <div class="brand-tagline">ghar ka kaam,<br />ab asaan</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a class="active" href="about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1>About Maid</h1>
+      <p class="muted" style="max-width: 720px; margin-bottom: 24px;">
+        Maid ("ghar ka kaam, ab asaan") gives households a clear overview of available home support services,
+        typical visit durations, and indicative hourly rates.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="badge">Core Services</span>
+          <h3>Everyday Home Support</h3>
+          <p class="muted">
+            Covering cleaning, daily cooking, laundry &amp; ironing, kitchen help, child care, and elder care support.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge">Flexible Visits</span>
+          <h3>Hourly &amp; Multi-Hour Options</h3>
+          <p class="muted">
+            Designed around flexible 2 to 8 hour visit windows to suit family routines.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge">Clear Rates</span>
+          <h3>Transparent Guidance</h3>
+          <p class="muted">
+            Indicative hourly rate ranges and service areas displayed upfront for easy reference.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <div class="card" id="contactBox"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Maid — ghar ka kaam, ab asaan | Contact: 03402843767</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const c = SITE_DATA.contact;
+    document.getElementById("contactBox").innerHTML = `
+      <p style="margin-bottom: 8px;"><strong>Service Areas:</strong> <span class="muted">${c.areas}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Support Hours:</strong> <span class="muted">${c.hours}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Phone:</strong> <span class="muted">${c.phoneDisplay}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Email:</strong> <span class="muted">${c.email}</span></p>
+      <a class="btn" href="${c.whatsappLink}" target="_blank" rel="noopener">Message on WhatsApp</a>
+    `;
+  </script>
+</body>
+</html>

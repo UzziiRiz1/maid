@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maid — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="logo-wrap">
+          <img src="logo.jpg" alt="Maid Logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Maid</div>
+          <div class="brand-tagline">  ghar ka kaam,<br />          ab asaan</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="hero-grid">
+        <div>
+          <h1>Reliable Household Help, Made Simple</h1>
+          <p class="muted">
+            Explore our home services, typical visit hours, covered areas, and indicative hourly rates.
+          </p>
+          <a class="btn" href="services.html">View Services</a>
+        </div>
+        <div>
+          <img class="showcase-img" src="hero-cleaning.jpg" alt="Home cleaning service" />
+        </div>
+      </div>
+
+      <div class="banner-wrap">
+        <div class="banner-box">
+          <img src="trusted-banner.jpg" alt="Maid cleaning while family relaxes in living room" />
+          <div class="banner-caption">Trusted &bull; Verified &bull; Safe | Professional Maids for Your Home</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <div class="card" id="contactBox"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Maid — ghar ka kaam, ab asaan | Contact: 03402843767</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const c = SITE_DATA.contact;
+    document.getElementById("contactBox").innerHTML = `
+      <p style="margin-bottom: 8px;"><strong>Service Areas:</strong> <span class="muted">${c.areas}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Support Hours:</strong> <span class="muted">${c.hours}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Phone:</strong> <span class="muted">${c.phoneDisplay}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Email:</strong> <span class="muted">${c.email}</span></p>
+      <a class="btn" href="${c.whatsappLink}" target="_blank" rel="noopener">Message on WhatsApp</a>
+    `;
+  </script>
+</body>
+</html>

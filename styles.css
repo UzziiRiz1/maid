@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-main: #120d0a;
+  --bg-card: #1d1510;
+  --bg-chip: #2a1e17;
+  --accent: #f48c42;
+  --accent-hover: #ff9d57;
+  --text-main: #f7f3ef;
+  --text-muted: #b8aba0;
+  --border: #382920;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 13, 10, 0.98) 0%,
+    rgba(18, 13, 10, 0.88) 72%,
+    rgba(18, 13, 10, 0) 100%
+  );
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-bottom: 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.logo-wrap {
+  height: 60px;
+  width: 60px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #120d0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-wrap img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1.22);
+  display: block;
+}
+
+.brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.95rem;
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.brand-tagline {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.02;
+  color: var(--text-muted);
+  text-align: left;
+  letter-spacing: 0.01em;
+  margin-top: -2px
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+section {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-section {
+  border-bottom: none;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin-bottom: 16px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+.showcase-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.banner-wrap {
+  margin-top: 24px;
+}
+
+.banner-box {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.banner-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 52px 22px 18px;
+  background: linear-gradient(
+    to top,
+    rgba(244, 140, 66, 0.78) 0%,
+    rgba(244, 140, 66, 0.45) 55%,
+    rgba(244, 140, 66, 0) 100%
+  );
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 6px rgba(18, 13, 10, 0.9);
+}
+
+.visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.visual-tile {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.visual-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visual-tile-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 42px 18px 14px;
+  background: linear-gradient(
+    to top,
+    rgba(244, 140, 66, 0.76) 0%,
+    rgba(244, 140, 66, 0.42) 55%,
+    rgba(244, 140, 66, 0) 100%
+  );
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.06rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 6px rgba(18, 13, 10, 0.9);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  background: var(--bg-chip);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--accent);
+  color: #160e08;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--bg-chip);
+  color: var(--accent);
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.rate {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 10px 0 6px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--accent);
+  color: #160e08;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-wrap {
+    height: 52px;
+    width: 52px;
+  }
+
+  .brand-title {
+    font-size: 1.65rem;
+  }
+
+  .banner-caption {
+    font-size: 0.96rem;
+    padding: 42px 16px 14px;
+  }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Maid</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="logo-wrap">
+          <img src="logo.jpg" alt="Maid Logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Maid</div>
+          <div class="brand-tagline">ghar ka kaam,<br />ab asaan</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1>Services &amp; Rates</h1>
+      <p class="muted" style="margin-bottom: 20px;">
+        View household work categories, visit durations, service areas, and rate guidance.
+      </p>
+
+      <div class="visual-grid">
+        <div class="visual-tile">
+          <img src="svc-kitchen.jpg" alt="Kitchen cleaning" />
+          <div class="visual-tile-caption">Kitchen Cleaning</div>
+        </div>
+        <div class="visual-tile">
+          <img src="svc-mopping.jpg" alt="Floor mopping" />
+          <div class="visual-tile-caption">Floor Mopping</div>
+        </div>
+        <div class="visual-tile">
+          <img src="svc-dusting.jpg" alt="Dusting and surface cleaning" />
+          <div class="visual-tile-caption">Dusting &amp; Surface Cleaning</div>
+        </div>
+        <div class="visual-tile">
+          <img src="svc-laundry.jpg" alt="Laundry service" />
+          <div class="visual-tile-caption">Laundry Service</div>
+        </div>
+      </div>
+
+      <div class="filters" id="filterBar"></div>
+      <div class="grid" id="servicesGrid"></div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <div class="card" id="contactBox"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Maid — ghar ka kaam, ab asaan | Contact: 03402843767</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const categories = ["All", ...new Set(SITE_DATA.services.map((s) => s.category))];
+    const filterBar = document.getElementById("filterBar");
+    const servicesGrid = document.getElementById("servicesGrid");
+    let activeCategory = "All";
+
+    function renderFilters() {
+      filterBar.innerHTML = "";
+      categories.forEach((cat) => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn" + (cat === activeCategory ? " active" : "");
+        btn.textContent = cat;
+        btn.onclick = () => {
+          activeCategory = cat;
+          renderFilters();
+          renderServices();
+        };
+        filterBar.appendChild(btn);
+      });
+    }
+
+    function renderServices() {
+      const items =
+        activeCategory === "All"
+          ? SITE_DATA.services
+          : SITE_DATA.services.filter((s) => s.category === activeCategory);
+
+      servicesGrid.innerHTML = items
+        .map(
+          (item) => `
+          <article class="card">
+            <span class="badge">${item.category}</span>
+            <h3>${item.title}</h3>
+            <div class="rate">${item.rate}</div>
+            <p class="muted"><strong>Duration:</strong> ${item.duration}</p>
+            <p class="muted"><strong>Areas:</strong> ${item.area}</p>
+            <p class="muted" style="margin-top: 8px;">${item.notes}</p>
+          </article>
+        `
+        )
+        .join("");
+    }
+
+    const c = SITE_DATA.contact;
+    document.getElementById("contactBox").innerHTML = `
+      <p style="margin-bottom: 8px;"><strong>Service Areas:</strong> <span class="muted">${c.areas}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Support Hours:</strong> <span class="muted">${c.hours}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Phone:</strong> <span class="muted">${c.phoneDisplay}</span></p>
+      <p style="margin-bottom: 8px;"><strong>Email:</strong> <span class="muted">${c.email}</span></p>
+      <a class="btn" href="${c.whatsappLink}" target="_blank" rel="noopener">Message on WhatsApp</a>
+    `;
+
+    renderFilters();
+    renderServices();
+  </script>
+</body>
+</html>
